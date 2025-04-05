@@ -1,8 +1,14 @@
+
 import os
 import sys
 import argparse
 import getpass
+import pandas as pd
+import requests
+import glob
+from supabase import create_client, Client
 from twitter_scraper import Twitter_Scraper
+from datetime import datetime
 
 try:
     from dotenv import load_dotenv
@@ -13,6 +19,54 @@ try:
 except Exception as e:
     print(f"Error loading .env file: {e}")
     sys.exit(1)
+
+
+SUPABASE_URL = "https://eilbotfabkrqhrwzurbs.supabase.co"
+SUPABASE_API_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVpbGJvdGZhYmtycWhyd3p1cmJzIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDM3OTIyOTgsImV4cCI6MjA1OTM2ODI5OH0.-u6dMJwKiL-M2J9iB4sSdHU0a5V9nzvnL10nxGwqH3A"  # your anon key
+TABLE_NAME = "twitterdata"
+
+CSV_FOLDER = r"C:\Users\singh\OneDrive\Desktop\selenium-twitter-scraper\tweets"
+
+def get_latest_csv_file(folder_path):
+    csv_files = glob.glob(os.path.join(folder_path, "*.csv"))
+    if not csv_files:
+        print("⚠ No CSV files found.")
+        return None
+    latest_file = max(csv_files, key=os.path.getmtime)
+    print(f"Latest CSV file found: {latest_file}")
+    return latest_file
+
+def upload_csv_to_supabase(csv_path):
+    try:
+        df = pd.read_csv(csv_path, usecols=["Timestamp", "Content"])
+        df["Timestamp"] = pd.to_datetime(df["Timestamp"], errors='coerce')
+        df = df.dropna(subset=["Timestamp", "Content"])
+
+        endpoint = f"{SUPABASE_URL}/rest/v1/{TABLE_NAME}"
+        headers = {
+            "apikey": SUPABASE_API_KEY,
+            "Authorization": f"Bearer {SUPABASE_API_KEY}",
+            "Content-Type": "application/json",
+            "Prefer": "return=representation"
+        }
+
+        for _, row in df.iterrows():
+            data = {
+                "Timestamp": row["Timestamp"].isoformat(),
+                "Content": row["Content"]
+            }
+
+            response = requests.post(endpoint, json=data, headers=headers)
+
+            if response.status_code not in [200, 201]:
+                print(f"❌ Failed to insert: {data}")
+                print(f"Error: {response.text}")
+            else:
+                print(f"✅ Inserted: {data}")
+
+    except Exception as e:
+        print(f"⚠ Error: {e}")
+
 
 
 def main():
