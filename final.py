@@ -426,7 +426,7 @@ from twilio.rest import Client
 TWILIO_ACCOUNT_SID = "AC3700d0f22cc384eb47620d74edf4be1f"
 TWILIO_AUTH_TOKEN = "b3a98810e1fc66081f8720c8219d51b7"
 TWILIO_PHONE_NUMBER = "+19035687995"  # Twilio trial number
-TARGET_PHONE_NUMBER = "+919230822054"  # Your own phone number
+TARGET_PHONE_NUMBER =   # Your own phone number
 
 client = Client(TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN)
 
