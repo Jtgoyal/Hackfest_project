@@ -41,71 +41,11 @@ This is the proposed technology stack for our project:
 
 ---
 
-## ⚙️ Getting Started
-
-Follow these instructions to get a local copy up and running for development and testing purposes.
-
-### Prerequisites
-
-*   Python 3.9+ and Pip
-*   Node.js and npm/yarn
-*   Git
-
-### Installation & Setup
-
-1.  **Clone the repository:**
-    ```sh
-    git clone https://github.com/Laaksh1205/Hackfest_project.git
-    cd Hackfest_project
-    ```
-
-2.  **Set up the Backend:**
-    ```sh
-    cd backend
-    pip install -r requirements.txt
-    # Add your API keys to a .env file
-    cp .env.example .env
-    ```
-
-3.  **Set up the Frontend:**
-    ```sh
-    cd ../frontend
-    npm install
-    ```
-
-### Running the Application
-
-1.  **Start the Backend Server:**
-    ```sh
-    # From the /backend directory
-    uvicorn main:app --reload
-    ```
-
-2.  **Start the Frontend Development Server:**
-    ```sh
-    # From the /frontend directory
-    npm start
-    ```
-
-3.  Open your browser and visit `http://localhost:3000`.
-
----
-
-## 🤝 How to Contribute
-
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
-
-1.  Fork the Project
-2.  Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the Branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
-
 ## 🧑‍💻 Team
 
-*   [Laaksh Parikh/Teammate 1]
-*   [Ashmit Banerjee/Teammate 2]
-*   [Chirag Chattani/Teammate 3]
-*   [Hemant Singh/Teammate 4]
-*   [Jatin Goyal/Teammate 5]
+*   [Laaksh Parikh]
+*   [Ashmit Banerjee]
+*   [Chirag Chattani]
+*   [Hemant Kumar Singh]
+*   [Jatin Goyal]
 ---
