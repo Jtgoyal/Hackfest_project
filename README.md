@@ -1,6 +1,6 @@
 # 🚀 AI-Powered Event Sentinel: Real-Time Sentiment Analysis
 
-A submission for **Hack</Fest '25** (Problem Statement 6). This project provides a real-time, AI-powered solution for monitoring attendee sentiment and detecting issues during live events.
+A submission for **HackFest '25** (Problem Statement 6). This project provides a real-time, AI-powered solution for monitoring attendee sentiment and detecting issues during live events.
 
 ---
 
@@ -37,7 +37,6 @@ This is the proposed technology stack for our project:
 *   **Backend:** Python (FastAPI), Uvicorn
 *   **AI/ML:** Hugging Face Transformers (for sentiment analysis), Scikit-learn, NLTK
 *   **Database:** PostgreSQL (for structured data), Redis (for caching and real-time tasks)
-*   **Deployment:** Docker, Nginx, AWS/Google Cloud
 
 ---
 
