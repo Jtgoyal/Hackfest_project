@@ -41,10 +41,9 @@ This is the proposed technology stack for our project:
 ---
 
 ## 🧑‍💻 Team
-
+*   [Jatin Goyal]
 *   [Laaksh Parikh]
 *   [Ashmit Banerjee]
 *   [Chirag Chattani]
 *   [Hemant Kumar Singh]
-*   [Jatin Goyal]
 ---
